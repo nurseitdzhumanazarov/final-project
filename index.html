@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* Gallery Image Styling */
+        .gallery img {
+            width: 25%;
+            height: auto;
+            border-radius: 40px;
+            box-shadow: 0 8px 15px rgba(194, 36, 36, 0.1);
+            transition: transform 0.1s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(2);
+            box-shadow: 0 12px 30px rgba(159, 66, 56, 0.2);
+        }
+
+        /* Body Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2ba8e7;
+            height: 100vh;
+        }
+
+        /* Sidebar Styling */
+        #sidebar {
+            width: 250px;
+            height: 100%;
+            background-color: #040505;
+            color: #6e0b0b;
+            padding: 20px;
+            position: fixed;
+        }
+
+        .profile-pic {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-pic img {
+            border-radius: 50%;
+            max-width: 100%;
+            height: auto;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        ul li {
+            margin: 20px 0;
+        }
+
+        ul li a {
+            text-decoration: none;
+            color: #e1720b;
+            font-size: 20px;
+            padding: 8px;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+
+        ul li a:hover {
+            background-color: #575757;
+        }
+
+        /* Main Content Styling */
+        #content {
+            margin-left: 250px;
+            padding: 40px;
+            width: calc(100% - 250px);
+        }
+
+        section {
+            margin-bottom: 40px;
+            padding-bottom: 40px; /* Add extra space at the bottom */
+        }
+
+        /* Black Background Space Between Sections */
+        .spacer {
+            background-color: #2ba8e7; /* Black color */
+            height: 60px; /* Space between sections */
+        }
+
+        h1, h2 {
+            color: #f4f0f0;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.2;
+            color: #f6eded;
+            letter-spacing: 0;
+            text-align: left;
+            font-size: 16px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* Contact Form Styling */
+        .contact-form {
+            background-color: #111;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            font-size: 14px;
+            border: none;
+            border-radius: 4px;
+            outline: none;
+        }
+
+        .contact-form textarea {
+            height: 100px;
+            resize: none;
+        }
+
+        .contact-form button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: #2ba8e7;
+            color: #000000;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #2ba8e7;
+        }
+
+        /* Responsive Styling */
+        @media (max-width: 768px) {
+            #sidebar {
+                width: 200px;
+                padding: 15px;
+            }
+
+            #content {
+                margin-left: 200px;
+                width: calc(100% - 200px);
+            }
+
+            .profile-pic img {
+                width: 100px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+
+            #content {
+                margin-left: 0;
+                width: 100%;
+            }
+
+            .profile-pic img {
+                width: 80px;
+            }
+
+            ul li {
+                margin: 15px 0;
+            }
+
+            ul li a {
+                font-size: 16px;
+            }
+            #home {
+    margin-bottom: 70px; /* Adjust this value to add more or less space */
+}
+        }
+
+        ul {
+        list-style-type: none;
+    }
+
+    ul li {
+        margin: 20px 0;
+    }
+
+    ul li a {
+        text-decoration: none;
+        color: #fd7a00;
+        font-size: 20px;
+        padding: 8px;
+        display: block;
+        transition: transform 0.2s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    }
+
+    ul li a:hover {
+        transform: scale(1.4);
+        box-shadow: 0 0px 10px rgba(193, 101, 3, 0.2);
+        background-color: rgba(243, 144, 5, 0.1);
+        border-radius: 80px;
+    }
+
+
+    </style>
+</head>
+<body>
+    <div id="sidebar">
+        <div class="profile-pic">
+            <img src="photos/WhatsApp Image 2024-12-23 at 00.42.00.jpeg"  width="150" alt="Profile Picture" >
+
+        </div>
+        <ul>
+            <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
+            <li><a href="#photos"><i class="fas fa-camera"></i> Photos</a></li>
+            <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+    </div>
+  
+    <div id="content">
+        <section id="home" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+            <img src="photos/WhatsApp Image 2024-12-23 at 00.42.00.jpeg" alt="Nurseit">
+        </section>
+        
+
+
+        <div class="spacer"></div> <!-- Spacer between Home and About -->
+        <div class="spacer"></div> <!-- Spacer between Home and About -->
+        <div class="spacer"></div> <!-- Spacer between Home and About -->
+
+
+
+        <div class="spacer"></div> <!-- Spacer between sections -->
+
+        <section id="about">
+            <h2 style="text-align: center;">About Me</h2>
+            <p>I am Nurseit, a passionate photographer and web designer dedicated to blending artistry with technical expertise. My journey into the world of photography began with a fascination for capturing the beauty of everyday moments. Over the years, I’ve honed my skills in using light, composition, and perspective to tell compelling visual stories. Whether it’s a breathtaking landscape, a fleeting moment of emotion, or the intricate details of the world around us, photography has become my medium for expressing creativity and evoking emotions.
+
+                In addition to my love for photography, I’ve cultivated a deep interest in web design. My technical journey began with an interest in creating functional and aesthetically pleasing websites that provide users with seamless and engaging experiences. With a strong understanding of design principles and an eye for detail, I’ve worked on numerous projects that merge creativity with functionality. I strive to craft digital platforms that not only look visually stunning but also resonate with the target audience and achieve specific objectives.
+                
+                Photography has taught me to see the extraordinary in the ordinary, helping me develop a keen eye for detail, color, and texture. These insights deeply influence my web design projects, where every element is purposefully placed to create harmony and balance. My design philosophy revolves around user-centricity: understanding the needs of clients and users to deliver innovative and practical solutions.
+                
+                Throughout my career, I’ve worked on a diverse range of projects, from personal photography portfolios to complex corporate websites. I take pride in my ability to adapt to different styles and project requirements, ensuring that every creation is unique, impactful, and tailored to the vision of my clients. My love for storytelling fuels my creative process, whether it’s through a single photograph that speaks volumes or a website that tells the narrative of a brand.
+                
+                Beyond work, I find inspiration in exploring nature, traveling to new places, and learning about different cultures. These experiences not only enrich my perspective but also influence my artistic expression, enabling me to bring fresh ideas and unique concepts to every project.
+                
+                My ultimate goal is to leave a lasting impression through my work, whether it's a photograph that takes your breath away or a website that enhances your digital presence. I believe that creativity is a journey, not a destination, and I am committed to continually pushing the boundaries of what I can achieve in both photography and web design.
+                
+                
+
+            </p>
+        </section>
+        <div class="spacer"></div> <!-- Spacer between Home and About -->
+        <div class="spacer"></div> <!-- Spacer between sections -->
+        <div class="spacer"></div> <!-- Spacer between Home and About -->
+        <div class="spacer"></div> <!-- Spacer between Home and About -->
+        <div class="spacer"></div> <!-- Spacer between Home and About -->
+        <div class="spacer"></div> <!-- Spacer between Home and About -->
+        <div class="spacer"></div> <!-- Spacer between Home and About -->
+
+
+
+
+
+
+        <section id="photos">
+         <center> <h2>My Photos</h2> </center>  
+            <div class="gallery">
+                <img src="https://adventuro.com/wp-content/uploads/2024/07/kamil-pietrzak-Glj_cKt9u1I-unsplash-scaled.jpg" alt="A beautiful photo" height="200" width="300">
+                <img src="https://virtuoso-prod.dotcms.cloud/dA/9020c438-e7b9-4d11-8236-d64281c2c462/previewImage/adventure-crop.jpg" height="200" width="300">
+                <img src="https://media.cntraveler.com/photos/64879b50add73e0d14b17f9e/16:9/w_2580,c_limit/Most-Adventurous-things-to-do-in-your-lifetime-(update)_timur-garifov-sisZWCDkmwA-unsplash.jpg" alt="A beautiful photo" height="200" width="300">
+                <img src="https://adventure.tourism.gov.in/images/news/img2.jpg" height="200" width="300">
+                <img src="https://cdn.adventure-life.com/73/40/7/aenc9nu7/1300x820.webp" height="200" width="300">
+                <img src="https://miro.medium.com/v2/resize:fit:1400/0*TYcyxlNmS7Sk04uM" alt="A beautiful photo" height="200" width="300">
+                <img src="https://static.wixstatic.com/media/ed9266_8b0c08779fda4bb5a2ba61dfdfff47e3~mv2.jpg/v1/fill/w_720,h_432,al_c,lg_1,q_80/ed9266_8b0c08779fda4bb5a2ba61dfdfff47e3~mv2.jpg" alt="A beautiful photo" height="200" width="300">
+                <img src="https://www.enicbcmed.eu/sites/default/files/styles/full_content/public/2020-02/climbing-1761386.jpg?itok=De3hdbXX" height="200" width="300">
+                <img src="https://gobeyondadventure.ie/wp-content/uploads/2023/02/Go-Beyond-Adventure-About-min.jpg" alt="A beautiful photo" height="200" width="300">
+            </div>
+        </section>
+
+        <div class="spacer"></div> <!-- Spacer between sections -->
+
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <div class="contact-form">
+                <form action="#">
+                    <input type="text" placeholder="Name" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="text" placeholder="Subject" required>
+                    <textarea placeholder="Message" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>. 
